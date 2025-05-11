@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_court/Auth%20Screens/Lawyer_verify/options.dart';
-import 'package:open_court/info_screen/onboard.dart';
+import 'package:open_court/Auth%20Screens/Login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Montserrat'),
       title: 'Open Court',
-      home: SafeArea(child: Options()),
+      home: SafeArea(child: Login()),
     );
   }
 }

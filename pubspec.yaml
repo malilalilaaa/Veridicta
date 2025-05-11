@@ -37,6 +37,9 @@ dependencies:
   lottie: ^3.3.1
   intro_screen_onboarding_flutter: ^1.0.0
   flutter_login: ^5.0.0
+  camera: ^0.11.1
+  gal: ^2.3.1
+  local_auth: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -46,7 +49,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/logo.png"
+  image_path: "assets/apk_logo.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -72,8 +75,12 @@ flutter:
     - assets/logo_name.png
     - assets/lottie/1.json
     - assets/lottie/2.json
-    - assets/lottie/3.json
-    - assets/report.json
+    - assets/lottie/3.json  
+    - assets/carousel/c1.png
+    - assets/carousel/c2.png
+    - assets/carousel/c3.png
+    - assets/carousel/c4.png
+    
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
