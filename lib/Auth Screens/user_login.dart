@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:open_court/responsive/responsive.dart';
 import 'package:open_court/utils/Pallete.dart';
 
 class Login extends StatefulWidget {
@@ -26,21 +27,25 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          // FlutterLogin widget with transparent background
-          FlutterLogin(
-            onLogin: _authUsers,
-            onRecoverPassword: _passwordReset,
-            onSignup: _signup,
-            theme: LoginTheme(
-              pageColorLight: const Color.fromARGB(255, 209, 217, 226),
-              pageColorDark: Pallete.bg,
-              primaryColor: Pallete.mainfont,
-            ),
+    return Responsive(
+      child: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(gradient: Pallete.bg),
+          child: Stack(
+            children: [
+              FlutterLogin(
+                onLogin: _authUsers,
+                onRecoverPassword: _passwordReset,
+                onSignup: _signup,
+                theme: LoginTheme(
+                  pageColorLight: const Color.fromARGB(255, 209, 217, 226),
+                  pageColorDark: Colors.white,
+                  primaryColor: Pallete.mainfont,
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
