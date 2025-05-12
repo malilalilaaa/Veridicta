@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:open_court/utils/Pallete.dart';
 
-import '../Auth Screens/user_login.dart';
+import '../user/Auth Screens/user_login.dart';
 
 class Onboard extends StatefulWidget {
   @override
