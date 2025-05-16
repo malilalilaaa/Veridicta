@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:open_court/user/Auth%20Screens/user_login.dart';
 
 void main() {
-  runApp(MultiProvider(providers: [], child: const MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

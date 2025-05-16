@@ -8,4 +8,9 @@ class UserProvider extends ChangeNotifier {
     _user = User.fromJsonString(user);
     notifyListeners();
   }
+
+  void setUserFromModel(User user) {
+    _user = user;
+    notifyListeners();
+  }
 }
