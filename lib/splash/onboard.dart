@@ -57,7 +57,9 @@ class _OnboardState extends State<Onboard> {
               Align(
                 alignment: Alignment.topRight,
                 child: TextButton(
-                  onPressed: _goToLogin,
+                  onPressed: () {
+                    _controller.jumpToPage(onboardingData.length - 1);
+                  },
                   child: const Text(
                     "Skip",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -109,7 +111,15 @@ class _OnboardState extends State<Onboard> {
                 child:
                     _currentIndex == onboardingData.length - 1
                         ? ElevatedButton(
-                          onPressed: _goToLogin,
+                          onPressed: () {
+                            _goToLogin();
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Login(),
+                              ),
+                            );
+                          },
                           child: const Text("Get Started"),
                         )
                         : ElevatedButton(

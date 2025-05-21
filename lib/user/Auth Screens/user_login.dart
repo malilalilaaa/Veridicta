@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
-import 'package:open_court/responsive/responsive.dart';
+// import 'package:open_court/responsive/responsive.dart';
+import 'package:open_court/services/auth_services.dart';
 import 'package:open_court/utils/Pallete.dart';
 
 class Login extends StatefulWidget {
@@ -11,40 +12,59 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final AuthService authService = AuthService();
   Duration get loadingTime => const Duration(microseconds: 3000);
 
-  Future<String?> _authUsers(LoginData data) {
-    return Future.delayed(loadingTime).then((value) => null);
+  Future<String?> signinUser(LoginData data) async {
+    try {
+      authService.signInUser(
+        context: context,
+        email: data.name ?? '',
+        password: data.password ?? '',
+      );
+      return null;
+    } catch (e) {
+      return e.toString();
+    }
   }
 
   Future<String?> _passwordReset(String data) {
     return Future.delayed(loadingTime).then((value) => null);
   }
 
-  Future<String?> _signup(SignupData data) {
-    return Future.delayed(loadingTime).then((value) => null);
+  Future<String?> signupUser(SignupData data) async {
+    try {
+      authService.signUpUser(
+        context: context,
+        email: data.name ?? '',
+        password: data.password ?? '',
+      );
+      return null;
+    } catch (e) {
+      return e.toString();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Responsive(
-      child: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(gradient: Pallete.bg),
-          child: Stack(
-            children: [
-              FlutterLogin(
-                onLogin: _authUsers,
-                onRecoverPassword: _passwordReset,
-                onSignup: _signup,
-                theme: LoginTheme(
-                  pageColorLight: const Color.fromARGB(255, 209, 217, 226),
-                  pageColorDark: Colors.white,
-                  primaryColor: Pallete.mainfont,
-                ),
+    return Scaffold(
+      body: Container(
+        child: Stack(
+          children: [
+            FlutterLogin(
+              onLogin: signinUser,
+              onRecoverPassword: _passwordReset,
+              onSignup: signupUser,
+              theme: LoginTheme(
+                pageColorLight: const Color.fromARGB(255, 209, 217, 226),
+                pageColorDark: Colors.white,
+                primaryColor: Pallete.mainfont,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
