@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:open_court/providers/user_provider.dart';
 import 'package:open_court/services/login_signup/auth_services.dart';
 import 'package:open_court/splash/onboard.dart';
+import 'package:open_court/user/Ai_assistant/ai_home.dart';
 import 'package:provider/provider.dart';
-import 'package:open_court/user/Auth%20Screens/user_login.dart';
 
 void main() {
   runApp(
@@ -33,9 +33,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Montserrat'),
+      theme: ThemeData(
+        fontFamily: 'Montserrat',
+        textTheme: ThemeData.light().textTheme,
+      ),
       title: 'Veridicta',
-      home: Onboard(),
+      home: Ai_Home(),
 
       // Provider.of<UserProvider>(context).user.token.isEmpty
       //     ? const Login()
