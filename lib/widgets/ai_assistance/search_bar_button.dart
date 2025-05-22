@@ -29,13 +29,13 @@ class _SearchBarButtonState extends State<SearchBarButton> {
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
-          color: isHovered ? Pallete.proButton : Colors.transparent,
+          color: isHovered ? Pallete.footer : Colors.transparent,
         ),
         child: Row(
           children: [
             Icon(widget.icon, color: Pallete.icon, size: 20),
             const SizedBox(width: 8),
-            Text(widget.text, style: TextStyle(color: Pallete.mainfont)),
+            Text(widget.text, style: TextStyle(color: Colors.blueGrey)),
           ],
         ),
       ),

@@ -3,6 +3,8 @@ import 'package:open_court/providers/user_provider.dart';
 import 'package:open_court/services/login_signup/auth_services.dart';
 import 'package:open_court/splash/onboard.dart';
 import 'package:open_court/user/Ai_assistant/ai_home.dart';
+import 'package:open_court/user/Auth%20Screens/user_login.dart';
+import 'package:open_court/utils/Pallete.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -35,6 +37,10 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Montserrat',
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.blueGrey,
+          accentColor: Pallete.footer,
+        ),
         textTheme: ThemeData.light().textTheme,
       ),
       title: 'Veridicta',

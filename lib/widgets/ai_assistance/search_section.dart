@@ -64,6 +64,7 @@ class _SearchSectionState extends State<SearchSection> {
                     SearchBarButton(
                       icon: Icons.auto_awesome_outlined,
                       text: 'Focus',
+                      // Add this line to set the text color
                     ),
                     const SizedBox(width: 12),
                     SearchBarButton(
