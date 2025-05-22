@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:open_court/main.dart';
 import 'package:open_court/model/user.dart';
 import 'package:open_court/providers/user_provider.dart';
+import 'package:open_court/splash/onboard.dart';
 import 'package:open_court/utils/constants.dart';
 import 'package:open_court/utils/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'dart:convert';
 import '../providers/user_provider.dart' show UserProvider;
 import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
 
 class AuthService {
   void signUpUser({
@@ -20,7 +20,7 @@ class AuthService {
       User user = User(id: '', email: email, password: password, token: '');
       http.Response res = await http.post(
         Uri.parse('${Constants.uri}/api/signup'),
-        body: jsonEncode(user.toJson()),
+        body: user.toJson(),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -48,7 +48,6 @@ class AuthService {
     try {
       var userProvider = Provider.of<UserProvider>(context, listen: false);
       final navigator = Navigator.of(context);
-
       http.Response res = await http.post(
         Uri.parse('${Constants.uri}/api/signin'),
         body: jsonEncode({'email': email, 'password': password}),
@@ -56,33 +55,55 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      print('🔍 Full response body: ${res.body}');
       httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           userProvider.setUser(res.body);
-
-          try {
-            final decoded = jsonDecode(res.body);
-            final token = decoded['token'];
-
-            if (token != null && token is String && token.isNotEmpty) {
-              await prefs.setString('x-auth-token', token);
-            } else {
-              print('⚠️ Warning: token missing or invalid in response.');
-            }
-          } catch (e) {
-            print('❌ Error decoding token: $e');
-          }
-
+          await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           navigator.pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const MyApp()),
+            MaterialPageRoute(builder: (context) => Onboard()),
             (route) => false,
           );
         },
       );
+    } catch (e) {
+      showSnackBar(e.toString(), context);
+    }
+  }
+
+  void getUserData(BuildContext context) async {
+    try {
+      var userProvider = Provider.of<UserProvider>(context, listen: false);
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('x-auth-token');
+
+      if (token == null) {
+        prefs.setString('x-auth-token', '');
+      }
+
+      var tokenRes = await http.post(
+        Uri.parse('${Constants.uri}/tokenIsValid'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+          'x-auth-token': token!,
+        },
+      );
+
+      var response = jsonDecode(tokenRes.body);
+
+      if (response == true) {
+        http.Response userRes = await http.get(
+          Uri.parse('${Constants.uri}/'),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+            'x-auth-token': token,
+          },
+        );
+
+        userProvider.setUser(userRes.body);
+      }
     } catch (e) {
       showSnackBar(e.toString(), context);
     }
