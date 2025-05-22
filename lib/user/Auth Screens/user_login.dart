@@ -14,7 +14,6 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
   final AuthService authService = AuthService();
   Duration get loadingTime => const Duration(microseconds: 3000);
 
@@ -22,7 +21,7 @@ class _LoginState extends State<Login> {
     try {
       authService.signInUser(
         context: context,
-        email: data.name ?? '',
+        email: data.email ?? '',
         password: data.password ?? '',
       );
       return null;
