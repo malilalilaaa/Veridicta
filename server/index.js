@@ -10,7 +10,7 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(authRouter);
 
-const DB = "mongodb+srv://db_name:db_password@cluster1.0bzyvga.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
+const DB = "mongodb+srv://mahiya1210:c223309mahiya@cluster1.0bzyvga.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
 
 
 mongoose.connect(DB)

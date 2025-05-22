@@ -25,19 +25,24 @@ authRouter.post("/api/Signup", async (req, res) => {
 
 authRouter.post("/api/signin", async (req, res) => {
     try {
-        const {email, password} = req.body;
-        const User = await User.findOne({ email  });
-        if(!User) {
-            return res.status(400).json({ msg: "User does not exist"});
+        const { email, password } = req.body;
+
+        const existingUser = await User.findOne({ email });
+        if (!existingUser) {
+            return res.status(400).json({ msg: "User does not exist" });
         }
-    const ismatch = await bcrypt.compare(password, User.password);
-    if(!ismatch) {
-        return res.status(400).json({msg : "Invalid Password"})
-    }
-    const token = jwt.sign({ id: User._id}, "passwordKey");
-    res.json({ token, ...User._doc })
+
+        const isMatch = await bcrypt.compare(password, existingUser.password);
+        if (!isMatch) {
+            return res.status(400).json({ msg: "Invalid Password" });
+        }
+
+        const token = jwt.sign({ id: existingUser._id }, "passwordKey");
+
+        res.json({ token, user: existingUser });
     } catch (e) {
-        res.status(500).json({ error: e.msg})
+        res.status(500).json({ error: e.message });
     }
-}) 
+});
+
 module.exports = authRouter;

@@ -6,9 +6,9 @@ import 'package:open_court/utils/constants.dart';
 import 'package:open_court/utils/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-import 'dart:convert';
 import '../providers/user_provider.dart' show UserProvider;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 
 class AuthService {
   void signUpUser({
@@ -20,7 +20,7 @@ class AuthService {
       User user = User(id: '', email: email, password: password, token: '');
       http.Response res = await http.post(
         Uri.parse('${Constants.uri}/api/signup'),
-        body: user.toJson(),
+        body: jsonEncode(user.toJson()),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -48,6 +48,7 @@ class AuthService {
     try {
       var userProvider = Provider.of<UserProvider>(context, listen: false);
       final navigator = Navigator.of(context);
+
       http.Response res = await http.post(
         Uri.parse('${Constants.uri}/api/signin'),
         body: jsonEncode({'email': email, 'password': password}),
@@ -55,13 +56,27 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
+      print('🔍 Full response body: ${res.body}');
       httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () async {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           userProvider.setUser(res.body);
-          await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
+
+          try {
+            final decoded = jsonDecode(res.body);
+            final token = decoded['token'];
+
+            if (token != null && token is String && token.isNotEmpty) {
+              await prefs.setString('x-auth-token', token);
+            } else {
+              print('⚠️ Warning: token missing or invalid in response.');
+            }
+          } catch (e) {
+            print('❌ Error decoding token: $e');
+          }
+
           navigator.pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => const MyApp()),
             (route) => false,

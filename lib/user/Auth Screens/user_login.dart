@@ -19,10 +19,16 @@ class _LoginState extends State<Login> {
 
   Future<String?> signinUser(LoginData data) async {
     try {
+      final email = data.email;
+      final password = data.password;
+      if (email.isEmpty || password.isEmpty) {
+        return 'Email and password are required.';
+      }
+
       authService.signInUser(
         context: context,
-        email: data.email ?? '',
-        password: data.password ?? '',
+        email: email,
+        password: password,
       );
       return null;
     } catch (e) {
@@ -36,10 +42,15 @@ class _LoginState extends State<Login> {
 
   Future<String?> signupUser(SignupData data) async {
     try {
+      final email = data.email ?? '';
+      final password = data.password ?? '';
+      if (email.isEmpty || password.isEmpty) {
+        return 'Email and password are required.';
+      }
       authService.signUpUser(
         context: context,
-        email: data.name ?? '',
-        password: data.password ?? '',
+        email: email,
+        password: password,
       );
       return null;
     } catch (e) {
