@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_court/providers/user_provider.dart';
-import 'package:open_court/services/auth_services.dart';
+import 'package:open_court/services/login_signup/auth_services.dart';
 import 'package:open_court/splash/onboard.dart';
 import 'package:provider/provider.dart';
 import 'package:open_court/user/Auth%20Screens/user_login.dart';

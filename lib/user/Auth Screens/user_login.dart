@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 // import 'package:open_court/responsive/responsive.dart';
-import 'package:open_court/services/auth_services.dart';
+import 'package:open_court/services/login_signup/auth_services.dart';
 import 'package:open_court/utils/Pallete.dart';
 
 class Login extends StatefulWidget {
