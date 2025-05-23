@@ -14,6 +14,7 @@ def chat_endpoint(body: ChatBody):
 	
 	search_results = search_service.web_search(body.query)
 	print(search_results)
+	sorted_results = sort_source_service.sort_sources(body.query, search_results)
 	
 	# sort the sources
 	
