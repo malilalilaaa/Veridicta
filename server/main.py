@@ -1,10 +1,15 @@
 from fastapi import FastAPI
-from server.pydantic_models.chat_body import ChatBody
+from pydantic_models.chat_body import ChatBody
+from services.search_service import SearchService
 
 app = FastAPI()
-
-# send quary
+search_service = SearchService()
+#send quary
 @app.post("/chat")
 def chat_endpoint(body: ChatBody):
-    print(body.query)
-    return body.query
+   # search the web and find appripiate sources
+   search_service.web_search(body.query)
+   # sort the sources
+   # generate the response using LLM/Gemini
+    
+    
