@@ -13,8 +13,11 @@ class SortSourceService:
             query_embedding = self.embedding_model.encode(query)
 
             for res in search_results:
-                res_embedding = self.embedding_model.encode(res["content"])
+                content = res.get("content")
+                if not content:
+                    continue
 
+                res_embedding = self.embedding_model.encode(content)
                 similarity = float(
                     np.dot(query_embedding, res_embedding)
                     / (np.linalg.norm(query_embedding) * np.linalg.norm(res_embedding))
@@ -29,4 +32,5 @@ class SortSourceService:
                 relevant_docs, key=lambda x: x["relevance_score"], reverse=True
             )
         except Exception as e:
-            print(e)
+            print(f"[Sort Error] {e}")
+            return []
