@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/services/chat_web_service.dart';
+import 'package:open_court/user/Ai_assistant/chatpage.dart';
 
 import 'package:open_court/utils/Pallete.dart';
 import 'package:open_court/widgets/ai_assistance/search_bar_button.dart';
@@ -74,15 +76,15 @@ class _SearchSectionState extends State<SearchSection> {
                     const Spacer(),
                     GestureDetector(
                       onTap: () {
-                        // ChatWebService().chat(queryController.text.trim());
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //     builder:
-                        //         (context) => ChatPage(
-                        //           question: queryController.text.trim(),
-                        //         ),
-                        //   ),
-                        // );
+                        ChatWebService().chat(queryController.text.trim());
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder:
+                                (context) => ChatPage(
+                                  question: queryController.text.trim(),
+                                ),
+                          ),
+                        );
                       },
                       child: Container(
                         padding: EdgeInsets.all(9),

@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/services/chat_web_service.dart';
 import 'package:open_court/utils/Pallete.dart';
 import 'package:open_court/widgets/ai_assistance/search_section.dart';
 import 'package:open_court/widgets/ai_assistance/side_bar.dart';
 
-class Ai_Home extends StatelessWidget {
+class Ai_Home extends StatefulWidget {
   const Ai_Home({super.key});
+
+  @override
+  State<Ai_Home> createState() => _Ai_HomeState();
+}
+
+class _Ai_HomeState extends State<Ai_Home> {
+  @override
+  void initState() {
+    super.initState();
+    ChatWebService().connect();
+  }
 
   @override
   Widget build(BuildContext context) {
