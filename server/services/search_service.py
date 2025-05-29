@@ -1,4 +1,4 @@
-from config import Settings
+from server.ai_assistance.config import Settings
 from tavily import TavilyClient
 import trafilatura
 

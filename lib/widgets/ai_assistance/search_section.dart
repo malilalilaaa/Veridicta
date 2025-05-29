@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:open_court/services/chat_web_service.dart';
+import 'package:open_court/services/Ai_assistance/chat_web_service.dart';
 import 'package:open_court/user/Ai_assistant/chatpage.dart';
 
 import 'package:open_court/utils/Pallete.dart';
