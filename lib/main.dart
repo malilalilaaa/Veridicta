@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_court/providers/user_provider.dart';
 import 'package:open_court/services/login_signup/auth_services.dart';
-import 'package:open_court/splash/onboard.dart';
-import 'package:open_court/user/Ai_assistant/ai_home.dart';
-import 'package:open_court/user/Auth%20Screens/user_login.dart';
+import 'package:open_court/user/crime_report/report_home.dart';
 import 'package:open_court/utils/Pallete.dart';
 import 'package:provider/provider.dart';
 
@@ -44,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         textTheme: ThemeData.light().textTheme,
       ),
       title: 'Veridicta',
-      home: Ai_Home(),
+      home: Report_Home(),
 
       // Provider.of<UserProvider>(context).user.token.isEmpty
       //     ? const Login()
