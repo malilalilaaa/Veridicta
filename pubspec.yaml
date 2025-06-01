@@ -48,6 +48,8 @@ dependencies:
   flutter_markdown: ^0.7.7+1
   url_launcher: ^6.3.1
   file_picker: ^10.1.9
+  geolocator: ^14.0.1
+  flutter_typeahead: ^5.2.0
 
 dev_dependencies:
   flutter_test:
