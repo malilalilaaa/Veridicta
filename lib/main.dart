@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/providers/report_provider.dart';
 import 'package:open_court/providers/user_provider.dart';
 import 'package:open_court/services/login_signup/auth_services.dart';
 import 'package:open_court/user/crime_report/report_home.dart';
+import 'package:open_court/user/crime_report/submit_report.dart';
 import 'package:open_court/utils/Pallete.dart';
 import 'package:provider/provider.dart';
+
+import 'user/crime_report/track.dart'; // Import your track.dart file here
 
 void main() {
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => UserProvider())],
+      providers: [
+        ChangeNotifierProvider(create: (_) => ReportProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+      ],
       child: const MyApp(),
     ),
   );
@@ -42,7 +49,7 @@ class _MyAppState extends State<MyApp> {
         textTheme: ThemeData.light().textTheme,
       ),
       title: 'Veridicta',
-      home: Report_Home(),
+      home: SubmitReportScreen(),
 
       // Provider.of<UserProvider>(context).user.token.isEmpty
       //     ? const Login()
