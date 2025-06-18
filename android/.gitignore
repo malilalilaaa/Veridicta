@@ -1,6 +1,10 @@
 gradle-wrapper.jar
 /.gradle
 /captures/
+<<<<<<< HEAD
+=======
+/server/node_modules/
+>>>>>>> 3d23c8d (Reconnect project to GitHub and ignore node_modules)
 /gradlew
 /gradlew.bat
 /local.properties
