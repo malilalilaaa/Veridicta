@@ -38,6 +38,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "calendar_date_picker2",
+      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/calendar_date_picker2-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "camera",
       "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/camera-0.11.1",
       "packageUri": "lib/",
@@ -240,6 +246,12 @@
       "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.28",
       "packageUri": "lib/",
       "languageVersion": "3.6"
+    },
+    {
+      "name": "flutter_rating_stars",
+      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_rating_stars-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter_test",
@@ -854,7 +866,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-06-16T05:27:33.201586Z",
+  "generated": "2025-06-27T05:52:13.927506Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///D:/mahiya%20softwares/flutter_windows_3.27.4-stable/flutter",

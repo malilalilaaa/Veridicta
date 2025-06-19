@@ -52,6 +52,8 @@ dependencies:
   flutter_typeahead: ^5.2.0
   image_picker: ^1.1.2
   intl: ^0.20.2
+  calendar_date_picker2: ^2.0.1
+  flutter_rating_stars: ^1.1.0
 
 
 dev_dependencies:
@@ -86,6 +88,7 @@ flutter:
   assets:
     - assets/logo.png
     - assets/logo_name.png
+    - assets/lawyer.png
     - assets/lottie/1.json
     - assets/lottie/2.json
     - assets/lottie/3.json  
