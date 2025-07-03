@@ -231,7 +231,7 @@
     },
     {
       "name": "flutter_login",
-      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_login-5.0.0",
+      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_login-5.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -561,7 +561,7 @@
     },
     {
       "name": "phone_numbers_parser",
-      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/phone_numbers_parser-8.3.0",
+      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/phone_numbers_parser-9.0.3",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -663,7 +663,7 @@
     },
     {
       "name": "sign_in_button",
-      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/sign_in_button-3.2.0",
+      "rootUri": "file:///C:/Users/LENOVO/AppData/Local/Pub/Cache/hosted/pub.dev/sign_in_button-4.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -866,7 +866,7 @@
       "languageVersion": "3.7"
     }
   ],
-  "generated": "2025-06-27T05:52:13.927506Z",
+  "generated": "2025-06-27T15:47:06.499781Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///D:/mahiya%20softwares/flutter_windows_3.27.4-stable/flutter",

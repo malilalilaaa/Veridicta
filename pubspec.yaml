@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   lottie: ^3.3.1
   intro_screen_onboarding_flutter: ^1.0.0
-  flutter_login: ^5.0.0
+  flutter_login: ^5.1.0
   camera: ^0.11.1
   gal: ^2.3.1
   local_auth: ^2.3.0
@@ -88,7 +88,15 @@ flutter:
   assets:
     - assets/logo.png
     - assets/logo_name.png
+    - assets/ngo1.png
+    - assets/ngo2.png
     - assets/lawyer.png
+    - assets/cl.png
+    - assets/env_l.png
+    - assets/ml.png
+    - assets/pl.png
+    - assets/lawyer2.jpeg
+    - assets/lawyer3.jpeg
     - assets/lottie/1.json
     - assets/lottie/2.json
     - assets/lottie/3.json  
