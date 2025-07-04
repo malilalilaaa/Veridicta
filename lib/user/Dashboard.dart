@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/utils/Pallete.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+class User_Dashboard extends StatelessWidget {
+  const User_Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -19,80 +22,92 @@ class Dashboard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
-                      "Training",
+                      "Dashboard",
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
+                        color: Pallete.cardColor,
                       ),
                     ),
-                    Icon(Icons.calendar_today_outlined),
+                    Icon(Icons.notifications, color: Pallete.cardColor),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
-                // Your program section
+                // Welcome section
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text("Your program", style: TextStyle(fontSize: 16)),
+                    Expanded(
+                      child: Text(
+                        "Welcome Shafwat Mahiya",
+                        style: TextStyle(fontSize: 16),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    SizedBox(width: 10),
                     Text(
-                      "Details",
-                      style: TextStyle(fontSize: 14, color: Colors.blue),
+                      "Profile",
+                      style: TextStyle(fontSize: 14, color: Pallete.cardColor),
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-                // Next workout card
+                // Next report card
                 Container(
+                  width: double.infinity,
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color(0xFF6A5AE0), Color(0xFF60A1F1)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
+                    gradient: Pallete.bg,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "Next workout",
-                            style: TextStyle(
-                              color: Colors.white70,
-                              fontSize: 14,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            "Legs Toning\nand Glutes Workout",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Row(
-                            children: [
-                              Icon(Icons.timer, color: Colors.white, size: 18),
-                              SizedBox(width: 5),
-                              Text(
-                                "60 min",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "Next Report",
+                              style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 14,
                               ),
-                            ],
-                          ),
-                        ],
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Women fell victim to theft\nCivilians take matter to own hands",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.timer,
+                                  color: Colors.white,
+                                  size: 18,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "10 min",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                      CircleAvatar(
+                      const SizedBox(width: 10),
+                      const CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 25,
                         child: Icon(Icons.play_arrow, color: Colors.blue),
@@ -100,58 +115,48 @@ class Dashboard extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-                // Motivation banner
-                Container(
-                  padding: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF1F6FF),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.directions_run, color: Colors.blue),
-                      SizedBox(width: 15),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "You are doing great",
-                            style: TextStyle(fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "Keep it up\nStick to your plan",
-                            style: TextStyle(fontSize: 12, color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 25),
-
-                // Area of focus title
+                // For You Section
                 const Text(
-                  "Area of focus",
+                  "For You",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
 
-                // Focus area grid
-                GridView.count(
-                  crossAxisCount: 2,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 1.1,
-                  children: const [
-                    FocusAreaCard(title: "Glutes", icon: Icons.fitness_center),
-                    FocusAreaCard(title: "Abs", icon: Icons.accessibility_new),
-                    FocusAreaCard(title: "Arms", icon: Icons.pan_tool_alt),
-                    FocusAreaCard(title: "Legs", icon: Icons.directions_walk),
-                  ],
+                // Responsive Grid
+                LayoutBuilder(
+                  builder: (context, constraints) {
+                    int crossAxisCount = width < 400 ? 2 : 3;
+                    double childAspectRatio = width < 400 ? 0.9 : 1.2;
+
+                    return GridView.count(
+                      crossAxisCount: crossAxisCount,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
+                      childAspectRatio: childAspectRatio,
+                      children: const [
+                        FocusAreaCard(
+                          title: "Report",
+                          image: AssetImage("assets/report_crime.png"),
+                        ),
+                        FocusAreaCard(
+                          title: "Hire Lawyer",
+                          image: AssetImage("assets/hire_lawyer.png"),
+                        ),
+                        FocusAreaCard(
+                          title: "AI Assistant",
+                          image: AssetImage("assets/ai_assist.png"),
+                        ),
+                        FocusAreaCard(
+                          title: "NGO Help",
+                          image: AssetImage("assets/probono.png"),
+                        ),
+                      ],
+                    );
+                  },
                 ),
               ],
             ),
@@ -164,25 +169,47 @@ class Dashboard extends StatelessWidget {
 
 class FocusAreaCard extends StatelessWidget {
   final String title;
-  final IconData icon;
+  final IconData? icon;
+  final ImageProvider? image;
 
-  const FocusAreaCard({super.key, required this.title, required this.icon});
+  const FocusAreaCard({super.key, required this.title, this.icon, this.image});
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final imageSize =
+        screenWidth * 0.18; // scale image size based on screen width
+
+    Widget iconWidget;
+
+    if (image != null) {
+      iconWidget = Image(
+        image: image!,
+        width: imageSize,
+        height: imageSize,
+        fit: BoxFit.contain,
+      );
+    } else if (icon != null) {
+      iconWidget = Icon(icon, size: 40, color: Colors.blue);
+    } else {
+      iconWidget = const SizedBox();
+    }
+
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFF5F5FA),
+        color: const Color(0xFFF5F5FA),
         borderRadius: BorderRadius.circular(20),
       ),
+      padding: const EdgeInsets.all(10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 40, color: Colors.blue),
-          SizedBox(height: 10),
+          iconWidget,
+          const SizedBox(height: 10),
           Text(
             title,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ],
       ),
