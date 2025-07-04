@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/user/Ai_assistant/ai_home.dart';
+import 'package:open_court/user/Hire_lawyer/lawyer_homescreen.dart';
+import 'package:open_court/user/crime_report/report_home.dart';
 import 'package:open_court/utils/Pallete.dart';
 
 class User_Dashboard extends StatelessWidget {
@@ -9,7 +12,6 @@ class User_Dashboard extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -137,22 +139,54 @@ class User_Dashboard extends StatelessWidget {
                       crossAxisSpacing: 20,
                       mainAxisSpacing: 20,
                       childAspectRatio: childAspectRatio,
-                      children: const [
+                      children: [
                         FocusAreaCard(
                           title: "Report",
-                          image: AssetImage("assets/report_crime.png"),
+                          image: const AssetImage("assets/report_crime.png"),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Report_Home(),
+                              ),
+                            );
+                          },
                         ),
                         FocusAreaCard(
                           title: "Hire Lawyer",
-                          image: AssetImage("assets/hire_lawyer.png"),
+                          image: const AssetImage("assets/hire_lawyer.png"),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LawyerHomescreen(),
+                              ),
+                            );
+                          },
                         ),
                         FocusAreaCard(
                           title: "AI Assistant",
-                          image: AssetImage("assets/ai_assist.png"),
+                          image: const AssetImage("assets/ai_assist.png"),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Ai_Home(),
+                              ),
+                            );
+                          },
                         ),
                         FocusAreaCard(
                           title: "NGO Help",
-                          image: AssetImage("assets/probono.png"),
+                          image: const AssetImage("assets/probono.png"),
+                          // onTap: () {
+                          //   Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => ReportPage(),
+                          //     ),
+                          //   );
+                          // },
                         ),
                       ],
                     );
@@ -171,14 +205,20 @@ class FocusAreaCard extends StatelessWidget {
   final String title;
   final IconData? icon;
   final ImageProvider? image;
+  final VoidCallback? onTap;
 
-  const FocusAreaCard({super.key, required this.title, this.icon, this.image});
+  const FocusAreaCard({
+    super.key,
+    required this.title,
+    this.icon,
+    this.image,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final imageSize =
-        screenWidth * 0.18; // scale image size based on screen width
+    final imageSize = screenWidth * 0.18;
 
     Widget iconWidget;
 
@@ -195,23 +235,27 @@ class FocusAreaCard extends StatelessWidget {
       iconWidget = const SizedBox();
     }
 
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFFF5F5FA),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          iconWidget,
-          const SizedBox(height: 10),
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-          ),
-        ],
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(20),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: Pallete.bg,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            iconWidget,
+            const SizedBox(height: 10),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+            ),
+          ],
+        ),
       ),
     );
   }

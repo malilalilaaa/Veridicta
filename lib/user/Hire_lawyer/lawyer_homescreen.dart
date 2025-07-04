@@ -7,14 +7,14 @@ import 'package:open_court/widgets/Hire_Lawyer/section_row.dart';
 import 'package:open_court/user/Hire_lawyer/category_filter.dart';
 import 'package:open_court/user/Hire_lawyer/lawyer_profile.dart';
 
-class HomeTabScreen extends StatefulWidget {
-  const HomeTabScreen({super.key});
+class LawyerHomescreen extends StatefulWidget {
+  const LawyerHomescreen({super.key});
 
   @override
-  State<HomeTabScreen> createState() => _HomeTabScreenState();
+  State<LawyerHomescreen> createState() => _LawyerHomescreenState();
 }
 
-class _HomeTabScreenState extends State<HomeTabScreen> {
+class _LawyerHomescreenState extends State<LawyerHomescreen> {
   List categoryArr = [
     {"title": "Criminal Law", "img": "assets/cl.png"},
     {"title": "Environmental law", "img": "assets/env_l.png"},

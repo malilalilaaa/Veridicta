@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:open_court/user/Ai_assistant/ai_home.dart';
-import 'package:open_court/user/Dashboard.dart';
+import 'package:open_court/user/Auth%20Screens/user_login.dart';
 import 'package:open_court/utils/Pallete.dart';
 
 class ChooseRoleScreen extends StatelessWidget {
@@ -44,7 +44,7 @@ class RoleButton extends StatelessWidget {
         } else if (title == 'Civilian') {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => User_Dashboard()),
+            MaterialPageRoute(builder: (context) => Login()),
           );
         }
       },
