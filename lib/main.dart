@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:open_court/initial_screens/choose.dart';
+import 'package:open_court/initial_screens/onboard.dart';
 import 'package:open_court/providers/report_provider.dart';
 import 'package:open_court/providers/user_provider.dart';
 import 'package:open_court/services/login_signup/auth_services.dart';
-import 'package:open_court/user/Ai_assistant/ai_home.dart';
-import 'package:open_court/user/Hire_lawyer/appointment_booking.dart';
-import 'package:open_court/user/Hire_lawyer/lawyer_homescreen.dart';
-import 'package:open_court/user/Hire_lawyer/lawyer_profile.dart';
-import 'package:open_court/user/Hire_lawyer/video_appointment/video_home.dart';
-import 'package:open_court/user/crime_report/report_home.dart';
-import 'package:open_court/user/crime_report/submit_report.dart';
 import 'package:open_court/utils/Pallete.dart';
 import 'package:provider/provider.dart';
-
-import 'user/crime_report/track.dart'; // Import your track.dart file here
 
 void main() {
   runApp(
@@ -55,7 +46,7 @@ class _MyAppState extends State<MyApp> {
         textTheme: ThemeData.light().textTheme,
       ),
       title: 'Veridicta',
-      home: VideoHome(),
+      home: Onboard(),
 
       // Provider.of<UserProvider>(context).user.token.isEmpty
       /////     ? const Login()

@@ -98,6 +98,7 @@ flutter:
     - assets/env_l.png
     - assets/ml.png
     - assets/pl.png
+    - assets/report.json
     - assets/lawyer2.jpeg
     - assets/lawyer3.jpeg
     - assets/lottie/1.json

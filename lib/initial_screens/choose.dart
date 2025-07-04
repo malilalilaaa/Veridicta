@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/user/Ai_assistant/ai_home.dart';
+import 'package:open_court/user/Dashboard.dart';
 import 'package:open_court/utils/Pallete.dart';
 
 class ChooseRoleScreen extends StatelessWidget {
@@ -7,22 +9,18 @@ class ChooseRoleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Choose Role'),
-        centerTitle: true,
-        backgroundColor: Colors.lightBlue[100],
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RoleButton(title: 'Lawyer'),
-            const SizedBox(height: 20),
-            RoleButton(title: 'Civilian'),
-          ],
+      body: Container(
+        decoration: BoxDecoration(gradient: Pallete.bg),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RoleButton(title: 'Lawyer'),
+              const SizedBox(height: 20),
+              RoleButton(title: 'Civilian'),
+            ],
+          ),
         ),
       ),
     );
@@ -35,16 +33,27 @@ class RoleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
-        // Handle button tap
         debugPrint('$title button tapped');
+        if (title == 'Lawyer') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Ai_Home()),
+          );
+        } else if (title == 'Civilian') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Dashboard()),
+          );
+        }
       },
+      borderRadius: BorderRadius.circular(15),
       child: Container(
         width: double.infinity,
         height: 100,
         decoration: BoxDecoration(
-          gradient: Pallete.bg,
+          color: Pallete.footer,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
@@ -61,7 +70,7 @@ class RoleButton extends StatelessWidget {
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: Pallete.cardColor,
             ),
           ),
         ),

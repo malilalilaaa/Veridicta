@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:open_court/initial_screens/choose.dart';
 import 'package:open_court/utils/Pallete.dart';
-
-import '../user/Auth Screens/user_login.dart';
 
 class Onboard extends StatefulWidget {
   @override
@@ -36,11 +35,11 @@ class _OnboardState extends State<Onboard> {
     },
   ];
 
-  void _goToLogin() {
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => const Login()),
-    // );
+  void _goToChoose() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => ChooseRoleScreen()),
+    );
   }
 
   @override
@@ -112,13 +111,7 @@ class _OnboardState extends State<Onboard> {
                     _currentIndex == onboardingData.length - 1
                         ? ElevatedButton(
                           onPressed: () {
-                            // _goToLogin();
-                            // Navigator.pushReplacement(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const Login(),
-                            //   ),
-                            // );
+                            _goToChoose();
                           },
                           child: const Text("Get Started"),
                         )
