@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:open_court/model/user.dart';
 import 'package:open_court/providers/user_provider.dart';
-import 'package:open_court/splash/onboard.dart';
+import 'package:open_court/initial_screens/onboard.dart';
 import 'package:open_court/utils/login_signup/constants.dart';
 import 'package:open_court/utils/login_signup/utils.dart';
 import 'package:http/http.dart' as http;

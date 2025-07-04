@@ -12,7 +12,7 @@ class Pallete {
   static const Color sideNav = Color(0xFF7191B2);
   static const Color icon = Color(0xFF7191B2);
   static const Color searchBar = Color.fromARGB(0, 53, 93, 134);
-  static const Color mainfont = Color(0xBCCCDC);
+  static const Color mainfont = Color.fromARGB(0, 37, 66, 97);
   static const Color proButton = Color.fromARGB(255, 90, 121, 152);
   static const Color cardColor = Color.fromARGB(255, 54, 93, 132);
   static const Color footer = Color.fromARGB(255, 160, 195, 230);

@@ -110,7 +110,7 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
                         color:
                             selectDate == null
                                 ? Pallete.footer
-                                : Pallete.mainfont,
+                                : Pallete.cardColor,
                       ),
                     ),
                   ),
@@ -203,7 +203,7 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
                 Text(
                   "50\$",
                   style: TextStyle(
-                    color: Pallete.mainfont,
+                    color: Colors.black54,
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
@@ -219,12 +219,12 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
               width: double.maxFinite,
               height: 50,
               decoration: BoxDecoration(
-                color: Pallete.mainfont,
+                color: Pallete.submitButton,
                 borderRadius: BorderRadius.circular(5),
               ),
               alignment: Alignment.center,
               child: const Text(
-                "Make a Payment",
+                "Make an Appointment",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14,

@@ -37,10 +37,10 @@ class _OnboardState extends State<Onboard> {
   ];
 
   void _goToLogin() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const Login()),
-    );
+    // Navigator.pushReplacement(
+    //   context,
+    //   MaterialPageRoute(builder: (context) => const Login()),
+    // );
   }
 
   @override
@@ -112,13 +112,13 @@ class _OnboardState extends State<Onboard> {
                     _currentIndex == onboardingData.length - 1
                         ? ElevatedButton(
                           onPressed: () {
-                            _goToLogin();
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Login(),
-                              ),
-                            );
+                            // _goToLogin();
+                            // Navigator.pushReplacement(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const Login(),
+                            //   ),
+                            // );
                           },
                           child: const Text("Get Started"),
                         )
