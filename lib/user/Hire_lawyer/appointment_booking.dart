@@ -201,7 +201,7 @@ class _AppointmentBookingScreenState extends State<AppointmentBookingScreen> {
                   ),
                 ),
                 Text(
-                  "50\$",
+                  "50 TK",
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 14,

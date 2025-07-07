@@ -3,6 +3,8 @@ import 'package:open_court/initial_screens/onboard.dart';
 import 'package:open_court/providers/report_provider.dart';
 import 'package:open_court/providers/user_provider.dart';
 import 'package:open_court/services/login_signup/auth_services.dart';
+import 'package:open_court/user/Ai_assistant/ai_home.dart';
+import 'package:open_court/user/Dashboard.dart';
 import 'package:open_court/utils/Pallete.dart';
 import 'package:provider/provider.dart';
 

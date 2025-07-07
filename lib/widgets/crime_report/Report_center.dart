@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_court/user/crime_report/submit_report.dart';
 import 'package:open_court/utils/Pallete.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -96,7 +97,14 @@ class Report_Center extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SubmitReportScreen(),
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Make Anonymous Report',
                         style: TextStyle(color: Colors.white),
