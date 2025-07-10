@@ -1,0 +1,26 @@
+# Dart/Flutter
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+packages
+pubspec.lock
+
+# Node.js
+node_modules/
+server/node_modules/
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.env
+venv/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+*.swp

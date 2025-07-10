@@ -1,6 +1,6 @@
 import asyncio
 from fastapi import FastAPI, WebSocket
-from pydantic_models.chat_body import ChatBody
+from ai_assistance.pydantic_models.chat_body import ChatBody
 from services.llm_service import LLMService
 from services.sort_source_service import SortSourceService
 from services.search_service import SearchService
@@ -11,7 +11,6 @@ app = FastAPI()
 search_service = SearchService()
 sort_source_service = SortSourceService()
 llm_service = LLMService()
-
 
 # chat websocket
 @app.websocket("/ws/chat")
@@ -34,7 +33,6 @@ async def websocket_chat_endpoint(websocket: WebSocket):
         print("Unexpected error occurred")
     finally:
         await websocket.close()
-
 
 # chat
 @app.post("/chat")
