@@ -1,11 +1,12 @@
-# Ignore Makefile-related files from language statistics
+# Ignore all Makefiles and platform build scripts from stats
 Makefile linguist-vendored
 *.mk linguist-vendored
 *.make linguist-vendored
 
-# Ignore platform-specific build files
+# Ignore generated platform folders
 android/** linguist-vendored
 ios/** linguist-vendored
 linux/** linguist-vendored
 macos/** linguist-vendored
+windows/** linguist-vendored
 build/** linguist-vendored
